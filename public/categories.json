@@ -1,0 +1,402 @@
+[
+    {
+        "id": 12,
+        "count": 51,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/c\/",
+        "name": "C#",
+        "slug": "c",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/12"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=12"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 17,
+        "count": 16,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/html-css\/",
+        "name": "HTML &amp; CSS",
+        "slug": "html-css",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/17"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=17"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 38,
+        "count": 2,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/java\/",
+        "name": "Java",
+        "slug": "java",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/38"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=38"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 70,
+        "count": 18,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/js\/",
+        "name": "Javascript",
+        "slug": "js",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/70"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=70"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 25,
+        "count": 5,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/microsoft-office\/",
+        "name": "Microsoft Office",
+        "slug": "microsoft-office",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/25"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=25"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "count": 2,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/modx\/",
+        "name": "ModX",
+        "slug": "modx",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/6"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=6"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 93,
+        "count": 1,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/python\/",
+        "name": "Python",
+        "slug": "python",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/93"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=93"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "count": 77,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/sharepoint\/",
+        "name": "SharePoint",
+        "slug": "sharepoint",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/4"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=4"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 15,
+        "count": 29,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/sql\/",
+        "name": "SQL",
+        "slug": "sql",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/15"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=15"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 81,
+        "count": 2,
+        "description": "",
+        "link": "http:\/\/markimarta.com\/category\/ubuntu\/",
+        "name": "Ubuntu",
+        "slug": "ubuntu",
+        "taxonomy": "category",
+        "parent": 0,
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories\/81"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/taxonomies\/category"
+                }
+            ],
+            "wp:post_type": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts?categories=81"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    }
+]

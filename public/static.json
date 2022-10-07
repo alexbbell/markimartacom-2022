@@ -1,0 +1,1122 @@
+[
+    {
+        "id": 1072,
+        "date": "2020-03-13T08:41:29",
+        "date_gmt": "2020-03-13T08:41:29",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1072"
+        },
+        "modified": "2020-03-13T08:41:30",
+        "modified_gmt": "2020-03-13T08:41:30",
+        "slug": "expand-all-the-events-in-calendar-view-on-page-load-sharepoint",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/expand-all-the-events-in-calendar-view-on-page-load-sharepoint\/",
+        "title": {
+            "rendered": "Expand all the events in Calendar View on page load SharePoint"
+        },
+        "content": {
+            "rendered": "\n<p>The method to expand all the events in Calendar View on load using Content Editor WebPart. You should add this code. You should copy and paste it to html file, save this file to document library and set its path into the settings of CEWP.<\/p>\n\n\n\n<!--more-->\n\n\n\n<pre class=\"wp-block-code\"><code>_spBodyOnLoadFunctionNames.push('changeCalendarEventLinkIntercept');\n\/\/Expand all the calendar events\nfunction changeCalendarEventLinkIntercept()\n{\n  var OldCalendarNotify4a = SP.UI.ApplicationPages.CalendarNotify.$4b;\n  SP.UI.ApplicationPages.CalendarNotify.$4b = function ()\n    {\n      OldCalendarNotify4a();\n      changeCalendarEventLinks();\n    }\n}\nfunction changeCalendarEventLinks()\n{\n\/\/expand all\n$(\"a&#91;evtid='expand_collapse']\").each(function(){\n  $(this)&#91;0].click();\n});\n}<\/code><\/pre>\n\n\n\n<p><\/p>\n\n\n\n<p><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>The method to expand all the events in Calendar View on load using Content Editor WebPart. You should add this code. You should copy and paste it to html file, save this file to document library and set its path into the settings of CEWP.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 210,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            23,
+            47,
+            50,
+            3
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1072"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1072"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1072\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1073,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1072\/revisions\/1073"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/210"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1072"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1072"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1072"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1066,
+        "date": "2020-01-16T12:49:55",
+        "date_gmt": "2020-01-16T12:49:55",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1066"
+        },
+        "modified": "2020-01-16T12:49:56",
+        "modified_gmt": "2020-01-16T12:49:56",
+        "slug": "parse-sharepoint-lookup-value-with-javascript-and-regular-expression",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/parse-sharepoint-lookup-value-with-javascript-and-regular-expression\/",
+        "title": {
+            "rendered": "Parse SharePoint lookup value with JavaScript and Regular expression"
+        },
+        "content": {
+            "rendered": "\n<p>If you use SharePoint and get data from lists with JavaScript, once you will receive SharePoint lookup value which looks like '34;#Item title'. There is a way to parse this data with Regular expression and to convert it to an object.<\/p>\n\n\n\n<p>I have created a small method to make it easier. In my case I have got values from parent list of employees. My method returns an object with properties 'id' and 'fullname':<\/p>\n\n\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>If you use SharePoint and get data from lists with JavaScript, once you will receive SharePoint lookup value which looks like &#8217;34;#Item title&#8217;. There is a way to parse this data with Regular expression and to convert it to an object. I have created a small method to make it easier. In my case I [&hellip;]<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 891,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            23,
+            48,
+            49,
+            71
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1066"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1066"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1066\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1067,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1066\/revisions\/1067"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/891"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1066"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1066"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1066"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1051,
+        "date": "2019-10-09T09:36:25",
+        "date_gmt": "2019-10-09T09:36:25",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1051"
+        },
+        "modified": "2019-10-09T09:38:35",
+        "modified_gmt": "2019-10-09T09:38:35",
+        "slug": "how-to-retrieve-sharepoint-version-from-url",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/how-to-retrieve-sharepoint-version-from-url\/",
+        "title": {
+            "rendered": "How to retrieve SharePoint version from URL"
+        },
+        "content": {
+            "rendered": "<p>To retrieve a SharePoint version there's no need to go to Central Administration. You can easily see it if you enter the URL<\/p>\n<p><em>http:\/\/mig1\/_vti_pvt\/service.cnf<\/em><\/p>\n<p><!--more--><\/p>\n<p>The result is something like this:<\/p>\n<p><em>vti_encoding:SR|utf8-nl<\/em><\/p>\n<p><em>vti_extenderversion:SR|15.0.0.4885<\/em><\/p>\n<p><div id=\"attachment_1052\" style=\"width: 377px\" class=\"wp-caption aligncenter\"><img aria-describedby=\"caption-attachment-1052\" loading=\"lazy\" class=\"wp-image-1052\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-6.png\" alt=\"Retrieve SharePoint version from URL\" width=\"367\" height=\"135\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-6.png 367w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-6-300x110.png 300w\" sizes=\"(max-width: 367px) 100vw, 367px\" \/><p id=\"caption-attachment-1052\" class=\"wp-caption-text\">\u00a0Retrieve SharePoint version from URL<\/p><\/div><\/p>\n<p>According to the information above, you can see that you are working with an old version of SharePoint 2013.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>To retrieve a SharePoint version there&#8217;s no need to go to Central Administration. You can easily see it if you enter the URL http:\/\/mig1\/_vti_pvt\/service.cnf<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 770,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            50
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1051"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1051"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 2,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1051\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1054,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1051\/revisions\/1054"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1051"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1051"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1051"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1045,
+        "date": "2019-10-06T09:25:47",
+        "date_gmt": "2019-10-06T09:25:47",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1045"
+        },
+        "modified": "2019-10-06T09:26:19",
+        "modified_gmt": "2019-10-06T09:26:19",
+        "slug": "disable-modal-windows-in-calendar-view-sharepoint-2010",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/disable-modal-windows-in-calendar-view-sharepoint-2010\/",
+        "title": {
+            "rendered": "Disable modal windows in Calendar view SharePoint 2010"
+        },
+        "content": {
+            "rendered": "\n<p>With SharePoint 2010 you can disable usage of modal windows in List settings. But if you use calendar view, it does not matter what you have installed in the settings \u2013 all the list forms will be opened in modal windows. How to disable them?<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>Once again Content editor web-part will help you. You should add a small Javascript code to your page.<\/p>\n\n\n\n<p>1. Save the code below to file with name like 'calendarViewDisable.html' and upload it to document library. <\/p>\n\n\n\n<p>2. Open list view and switch it to a Calendar one. <\/p>\n\n\n\n<p>3. Start to edit the page. Add Content Editor WebPart and include the link to the  file uploaded in the first step .<\/p>\n\n\n\n<p>4. Stop editing and save the page. Now links from the  calendar view will be opened without modal windows.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;script type=\"text\/javascript\">\nvar ContextInfo = (function() {\n    var ContextInfo_Orig = ContextInfo;\n    return function() {\n            ContextInfo_Orig();\n            this.NavigateForFormsPages = true;\n    }\n})();\n&lt;\/script>\n\n<\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>With SharePoint 2010 you can disable usage of modal windows in List settings. But if you use calendar view, it does not matter what you have installed in the settings \u2013 all the list forms will be opened in modal windows. How to disable them?<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 418,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            23,
+            50,
+            3,
+            2
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1045"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1045"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 2,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1045\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1047,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1045\/revisions\/1047"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/418"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1045"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1045"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1045"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1035,
+        "date": "2019-10-01T10:12:52",
+        "date_gmt": "2019-10-01T10:12:52",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1035"
+        },
+        "modified": "2019-10-01T10:12:53",
+        "modified_gmt": "2019-10-01T10:12:53",
+        "slug": "make-requests-to-sharepoint-2010-web-services-with-soapui",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/make-requests-to-sharepoint-2010-web-services-with-soapui\/",
+        "title": {
+            "rendered": "Make requests to SharePoint 2010 web services with SoapUI"
+        },
+        "content": {
+            "rendered": "<p>This post is about SharePoint web services. In SharePoint 2010 you can use only SOAP requests to get or to send data from or to SharePoint web sites. A bit below in this post you can see the list of WSDL URL addresses.<\/p>\n<p><!--more--><\/p>\n<p>All of them are accessible from virtual folder _vti_bin, which physically accords to ISAPI folder in HIVE directory (C:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\14\\ISAPI).<\/p>\n<p>The list of SharePoint 2010 web services:<\/p>\n<ul>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_adm\/Admin.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Alerts.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/authentication.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Copy.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/DspSts.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/DspSts.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Dws.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Forms.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Imaging.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Lists.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Meetings.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/people.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Permissions.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/publishedlinksservice.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/search.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/SiteData.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Sites.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/socialdataservice.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/spsearch.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/UserGroup.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Versions.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Views.asmx?wsdl<\/li>\n<li>http:\/\/&lt;server&gt;\/sites\/_vti_bin\/Webs.asmx?wsdl<\/li>\n<\/ul>\n<p>To test any of them, I advise you to use the tool SoapUI. It is a free tool and you can download it from <a href=\"http:\/\/www.soapui.org\/\">http:\/\/www.soapui.org\/<\/a>. I consider that this is the best tool to test SharePoint 2010 (and not only) web services.<\/p>\n<p>To add WSDL in the SoapUI, you should add New SOAP Project and fill the field \"WSDL Location\" with WSDL path (Figure 1).<\/p>\n<p><div id=\"attachment_1036\" style=\"width: 560px\" class=\"wp-caption aligncenter\"><a href=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image.png\" rel=\"lightbox[1035]\"><img aria-describedby=\"caption-attachment-1036\" loading=\"lazy\" class=\"wp-image-1036\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image.png\" alt=\"Figure 1. Add WSDL to project\" width=\"550\" height=\"244\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image.png 550w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-300x133.png 300w\" sizes=\"(max-width: 550px) 100vw, 550px\" \/><\/a><p id=\"caption-attachment-1036\" class=\"wp-caption-text\">Figure 1. Add WSDL to project<\/p><\/div><\/p>\n<p>SoapUI automatically creates request templates based on WSDL description. Usually, SharePoint works with Windows authentication. You have to add Authentication parameters here. If you don't do it, you will receive only \"401 UNAUTHORIZED\" in reply (Figure 2).<\/p>\n<p><div id=\"attachment_1037\" style=\"width: 310px\" class=\"wp-caption aligncenter\"><a href=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-1.png\" rel=\"lightbox[1035]\"><img aria-describedby=\"caption-attachment-1037\" loading=\"lazy\" class=\"wp-image-1037 size-medium\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-1-300x134.png\" alt=\"Figure 2. Unauthorized answer\" width=\"300\" height=\"134\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-1-300x134.png 300w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-1-768x344.png 768w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-1.png 929w\" sizes=\"(max-width: 300px) 100vw, 300px\" \/><\/a><p id=\"caption-attachment-1037\" class=\"wp-caption-text\">Figure 2. Unauthorized answer<\/p><\/div><\/p>\n<p>To add authentication, you should press button \"Auth\" in the request parameters (Figure 3).<\/p>\n<p>After that you should:<\/p>\n<ul>\n<li>Select \"Add New Authorization\" (Figure 4)<\/li>\n<li>Select NTLM (Figure 5)<\/li>\n<li>Enter username, password and domain for authentication (Figure 6)<\/li>\n<\/ul>\n<p><div id=\"attachment_1038\" style=\"width: 310px\" class=\"wp-caption aligncenter\"><a href=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-2.png\" rel=\"lightbox[1035]\"><img aria-describedby=\"caption-attachment-1038\" loading=\"lazy\" class=\"wp-image-1038 size-medium\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-2-300x174.png\" alt=\"Figure 3. Add Auth to requests\" width=\"300\" height=\"174\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-2-300x174.png 300w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-2-768x446.png 768w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-2.png 890w\" sizes=\"(max-width: 300px) 100vw, 300px\" \/><\/a><p id=\"caption-attachment-1038\" class=\"wp-caption-text\">Figure 3. Add Auth to requests<\/p><\/div><\/p>\n<p><div id=\"attachment_1039\" style=\"width: 310px\" class=\"wp-caption aligncenter\"><a href=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-3.png\" rel=\"lightbox[1035]\"><img aria-describedby=\"caption-attachment-1039\" loading=\"lazy\" class=\"wp-image-1039 size-medium\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-3-300x174.png\" alt=\"Figure 4. Add new Authentication\" width=\"300\" height=\"174\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-3-300x174.png 300w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-3-768x446.png 768w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-3.png 888w\" sizes=\"(max-width: 300px) 100vw, 300px\" \/><\/a><p id=\"caption-attachment-1039\" class=\"wp-caption-text\">Figure 4. Add new Authentication<\/p><\/div><\/p>\n<p><div id=\"attachment_1040\" style=\"width: 330px\" class=\"wp-caption aligncenter\"><a href=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-4.png\" rel=\"lightbox[1035]\"><img aria-describedby=\"caption-attachment-1040\" loading=\"lazy\" class=\"wp-image-1040\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-4.png\" alt=\"Figure 5. Add NTLM authorisation\" width=\"320\" height=\"210\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-4.png 320w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-4-300x197.png 300w\" sizes=\"(max-width: 320px) 100vw, 320px\" \/><\/a><p id=\"caption-attachment-1040\" class=\"wp-caption-text\">Figure 5. Add NTLM authorisation<\/p><\/div><\/p>\n<p><div id=\"attachment_1041\" style=\"width: 310px\" class=\"wp-caption aligncenter\"><a href=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-5.png\" rel=\"lightbox[1035]\"><img aria-describedby=\"caption-attachment-1041\" loading=\"lazy\" class=\"wp-image-1041 size-medium\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-5-300x164.png\" alt=\"Figure 6. Enter credentials\" width=\"300\" height=\"164\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-5-300x164.png 300w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-5-768x419.png 768w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/10\/word-image-5.png 993w\" sizes=\"(max-width: 300px) 100vw, 300px\" \/><\/a><p id=\"caption-attachment-1041\" class=\"wp-caption-text\">Figure 6. Enter credentials<\/p><\/div><\/p>\n<p>After all this exercises, set up your requests and have a nice coding.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>This post is about SharePoint web services. In SharePoint 2010 you can use only SOAP requests to get or to send data from or to SharePoint web sites. A bit below in this post you can see the list of WSDL URL addresses.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 1042,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            47,
+            50,
+            85,
+            3,
+            2
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1035"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1035"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1035\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1043,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1035\/revisions\/1043"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/1042"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1035"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1035"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1035"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1024,
+        "date": "2019-09-19T08:02:47",
+        "date_gmt": "2019-09-19T08:02:47",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1024"
+        },
+        "modified": "2019-09-19T08:04:35",
+        "modified_gmt": "2019-09-19T08:04:35",
+        "slug": "fix-sharepoint-2010-powershell-error-the-local-farm-is-not-accessible",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/fix-sharepoint-2010-powershell-error-the-local-farm-is-not-accessible\/",
+        "title": {
+            "rendered": "Fix SharePoint 2010 PowerShell Error \"The local farm is not accessible\""
+        },
+        "content": {
+            "rendered": "<p>After installation several Windows updates on servers with SharePoint I had started to recieve the warnings \"The local farm is not accessible. Cmdlets with FeatureDependencyId are not registered.\". It means that I can not use PowerShell for administration SharePoint.<\/p>\n<p><!--more--><\/p>\n<p>There are two possible ways to solve the problem.<\/p>\n<p>The first one is to remove all the updates. It's a bad idea. At first, you can not uninstall all the updates. Secondly, OS can stop working after removing updates. And finally, updates will be installed again whether you want it or not.<\/p>\n<p>That is why I recommend you to use the second solution. It is really not a solution but a workaround. In any case, it works perfectly. You should create an icon for SharePoint PowerShell and insert this text to Target field:<\/p>\n<p><em>C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\PowerShell.exe -version 2 -NoExit \" &amp; ' C:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\14\\CONFIG\\POWERSHELL\\Registration\\\\sharepoint.ps1 ' \"<\/em><\/p>\n<p><div id=\"attachment_1025\" style=\"width: 386px\" class=\"wp-caption aligncenter\"><a href=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image.png\" rel=\"lightbox[1024]\"><img aria-describedby=\"caption-attachment-1025\" loading=\"lazy\" class=\"wp-image-1025 size-full\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image.png\" alt=\"SharePoint PowerShell icon properties\" width=\"376\" height=\"520\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image.png 376w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image-217x300.png 217w\" sizes=\"(max-width: 376px) 100vw, 376px\" \/><\/a><p id=\"caption-attachment-1025\" class=\"wp-caption-text\">SharePoint PowerShell icon properties<\/p><\/div><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>After installation several Windows updates on servers with SharePoint I had started to recieve the warnings &#8220;The local farm is not accessible. Cmdlets with FeatureDependencyId are not registered.&#8221;. It means that I can not use PowerShell for administration SharePoint.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 21,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            5,
+            50
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1024"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1024"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 2,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1024\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1027,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1024\/revisions\/1027"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/21"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1024"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1024"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1024"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1012,
+        "date": "2019-07-05T06:28:10",
+        "date_gmt": "2019-07-05T06:28:10",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1012"
+        },
+        "modified": "2019-07-05T06:28:11",
+        "modified_gmt": "2019-07-05T06:28:11",
+        "slug": "sharepoint-feature-is-not-displayed-in-features-list",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/sharepoint-feature-is-not-displayed-in-features-list\/",
+        "title": {
+            "rendered": "SharePoint feature is not displayed in Features List"
+        },
+        "content": {
+            "rendered": "\n<p>Today in a test SharePoint environment I found that I don't have one of SharePoint features which I have in the productive environment. I reinstalled the solution with this feature several times, but it hadn't appeared.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>I was sure that the feature is installed, I could see its folder in \"C:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\14\\TEMPLATE\\FEATURES\".<\/p>\n\n\n\n<p>I found one excellent solution to fix the problem.<\/p>\n\n\n\n<p>To check the missed features execute SharePoint 2010 Management Shell from one of the SharePoint servers and enter command:<\/p>\n\n\n\n<p><em>Install-SPFeature \u2013ScanForFeatures<\/em><\/p>\n\n\n\n<p>This will show you any features that are available in the SharePoint Root but have not been installed.<\/p>\n\n\n\n<p>You can install all the missing features using the command:<\/p>\n\n\n\n<p><em>Install-SPFeature -AllExistingFeatures<\/em><\/p>\n\n\n\n<p>After these commands all the features appeared in Features list.<\/p>\n\n\n\n<p><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Today in a test SharePoint environment I found that I don&#8217;t have one of SharePoint features which I have in the productive environment. I reinstalled the solution with this feature several times, but it hadn&#8217;t appeared.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 770,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            5,
+            50
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1012"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1012"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1012\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1013,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1012\/revisions\/1013"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1012"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1012"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1012"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1004,
+        "date": "2019-04-23T15:15:33",
+        "date_gmt": "2019-04-23T15:15:33",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1004"
+        },
+        "modified": "2019-04-23T17:40:21",
+        "modified_gmt": "2019-04-23T17:40:21",
+        "slug": "display-multiline-html-text-in-sharepoint-dispform-aspx",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/display-multiline-html-text-in-sharepoint-dispform-aspx\/",
+        "title": {
+            "rendered": "Display multiline HTML text in SharePoint DispForm.aspx"
+        },
+        "content": {
+            "rendered": "\n<p>By default, in SharePoint display form the multiline text field is written as a string without html-tags. To display text as the multiline one with HTML-tags, you should modify the default parameters of the XSL expression.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>This code is the default:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;xsl:value-of select=\"@comment\"\/>&lt;\/span><\/code><\/pre>\n\n\n\n<p>You should add&nbsp; 'disable-output-escaping=\"yes\"':<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;span>&lt;xsl:value-of select=\"@comment\" disable-output-escaping=\"yes\"\/>&lt;\/span><\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>By default, in SharePoint display form the multiline text field is written as a string without html-tags. To display text as the multiline one with HTML-tags, you should modify the default parameters of the XSL expression.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 210,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            50,
+            2
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1004"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1004"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 5,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1004\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1009,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1004\/revisions\/1009"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/210"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1004"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1004"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1004"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1000,
+        "date": "2019-04-22T12:39:29",
+        "date_gmt": "2019-04-22T12:39:29",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1000"
+        },
+        "modified": "2019-04-23T07:34:04",
+        "modified_gmt": "2019-04-23T07:34:04",
+        "slug": "create-save-and-stay-on-page-button-in-sharepoint-list-edit-form-page",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/create-save-and-stay-on-page-button-in-sharepoint-list-edit-form-page\/",
+        "title": {
+            "rendered": "Create Save and Stay on Page button in SharePoint list Edit Form page"
+        },
+        "content": {
+            "rendered": "\n<p>Recently I was looking for the solution about how to add the button to \"Save and Stay on page\" for SharePoint Edit Form page. I read several articles how to do it, but most of them were no good. But also I found one useful page which became the base for my solution. <\/p>\n\n\n\n<!--more-->\n\n\n\n<p>On the page \"<a href=\"https:\/\/spjsblog.com\/forums\/topic\/adding-save-and-stay-on-page-button-in-edit-form\/\" target=\"_blank\" rel=\"noreferrer noopener\" aria-label=\"Adding &quot;Save and Stay on Page&quot; button in Edit form? (opens in a new tab)\">Adding \"Save and Stay on Page\" button in Edit form?<\/a>\" I have found a solution to modify Save button in SharePoint edit form. And for one case it worked fine.<\/p>\n\n\n\n<p>The idea of this method is to change \"Source\" parameter in the request. The \"Source\" contains the URL where page will be redirected. <br>\nUnfortunately, if you enter the page from context menu, you already have \"Source\" value. Usually, it is redirecting to \"AllItems\" or other List View. <br>\nI customized a bit of this code. In my version it doesn't matter whether it \"Source\" is filled with something or not.<\/p>\n\n\n\n<p>Add this code to $(document).ready(function() { \u2026 } :<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\tvar button = $(\"input[id$=SaveItem]\");\n\tbutton.attr(\"value\",\"Save and Stay on Page\");\n\t\/\/ change redirection behavior\n\tbutton.removeAttr(\"onclick\");\t\n    button.click(function() {\n        var elementName = $(this).attr(\"name\");\n        var aspForm = $(\"form[id=aspnetForm]\");\n        var oldPostbackUrl = aspForm.get(0).action;\n\n        var redirectUrl;\n        if(oldPostbackUrl.indexOf('Source=') != -1) {\n            var startSymbol = oldPostbackUrl.indexOf('Source=');\n            redirectUrl = oldPostbackUrl.substring(0, startSymbol-1);\n        }\n        else {\n            redirectUrl = oldPostbackUrl;\n        }\n        \n        var newPostbackUrl = redirectUrl + \"&amp;Source=\" +redirectUrl;\n\n        if (!PreSaveItem())  return false;\n\n        WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(elementName, \"\", true, \"\", newPostbackUrl, false, true));\n    });<\/code><\/pre>\n\n\n\n<p>One more useful customization is to add to edit form new Save button. You should use SharePoint designer to do it. Find the code with Save Button and add the code for new button somewhere near it:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;input name=\"ToApprove\" id=\"ToApprove\" type=\"button\" onclick=\"ExecuteBeforeSaving(); {ddwrt:GenFireServerEvent('__commit;__redirect={\/srv\/mysite\/Lists\/Orders\/}')};\" value=\"Send to approve\" \/><\/code><\/pre>\n\n\n\n<p><\/p>\n\n\n\n<p>In the function \"ExecuteBeforeSaving()\" you can add your logic and checks. Using this function gives you more functionality than \"PreSaveItem()\".<\/p>\n\n\n\n<p>There are two Save buttons in the form. That's why you should add two extra buttons. And remember that both of them must have unique IDs.<\/p>\n\n\n\n<p><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Recently I was looking for the solution about how to add the button to &#8220;Save and Stay on page&#8221; for SharePoint Edit Form page. I read several articles how to do it, but most of them were no good. But also I found one useful page which became the base for my solution.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 770,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            23,
+            50,
+            2
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1000"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1000"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 3,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1000\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1003,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1000\/revisions\/1003"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1000"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1000"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1000"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 984,
+        "date": "2019-04-04T04:39:19",
+        "date_gmt": "2019-04-04T04:39:19",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=984"
+        },
+        "modified": "2019-04-04T04:39:20",
+        "modified_gmt": "2019-04-04T04:39:20",
+        "slug": "flush-blob-cache-in-sharepoint",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/flush-blob-cache-in-sharepoint\/",
+        "title": {
+            "rendered": "Flush Blob cache in SharePoint"
+        },
+        "content": {
+            "rendered": "\n<p>To flush blob cache on SharePoint servers you should execute a PowerShell script on each front end server. Blob cache is set on each front-end server in a farm, that is why you have to do this way.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p> Of course, you can use 'Invoke-Command' to execute script on other servers. The script to flush blob cache is here:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$webApp = Get-SPWebApplication \"&lt;WebApplicationURL>\"\n[Microsoft.SharePoint.Publishing.PublishingCache]::FlushBlobCache($webApp)\nWrite-Host \"Flushed the BLOB cache for:\" $webApp\n<\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>To flush blob cache on SharePoint servers you should execute a PowerShell script on each front end server. Blob cache is set on each front-end server in a farm, that is why you have to do this way.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 770,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            21,
+            5,
+            50
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/984"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=984"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/984\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 985,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/984\/revisions\/985"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=984"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=984"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=984"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    }
+]
