@@ -9,7 +9,7 @@ export default function Leftcolumn ()  {
 
 
     const [items, setItems] = useState([]);
-    const [operationResult, setOperationResult] = useState(null);
+    const [operationResult, setOperationResult] = useState(false);
 
     useEffect( () => {
 
@@ -24,7 +24,7 @@ export default function Leftcolumn ()  {
             console.log('useeffexct', json);
     
         }
-        fetchData(operationResult);
+        fetchData();
     }, [operationResult] )
 
 
@@ -62,6 +62,7 @@ const Renderitems = () => {
     return (
         <>
         <h1>Categories</h1>
+        <ConstructionOutlined />
         <Renderitems />
         </>
     )
