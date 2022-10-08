@@ -1,1 +1,1111 @@
-[{"id":1024,"date":"2019-09-19T08:02:47","date_gmt":"2019-09-19T08:02:47","guid":{"rendered":"http:\/\/markimarta.com\/?p=1024"},"modified":"2019-09-19T08:04:35","modified_gmt":"2019-09-19T08:04:35","slug":"fix-sharepoint-2010-powershell-error-the-local-farm-is-not-accessible","status":"publish","type":"post","link":"http:\/\/markimarta.com\/sharepoint\/fix-sharepoint-2010-powershell-error-the-local-farm-is-not-accessible\/","title":{"rendered":"Fix SharePoint 2010 PowerShell Error \"The local farm is not accessible\""},"content":{"rendered":"<p>After installation several Windows updates on servers with SharePoint I had started to recieve the warnings \"The local farm is not accessible. Cmdlets with FeatureDependencyId are not registered.\". It means that I can not use PowerShell for administration SharePoint.<\/p>\n<p><!--more--><\/p>\n<p>There are two possible ways to solve the problem.<\/p>\n<p>The first one is to remove all the updates. It's a bad idea. At first, you can not uninstall all the updates. Secondly, OS can stop working after removing updates. And finally, updates will be installed again whether you want it or not.<\/p>\n<p>That is why I recommend you to use the second solution. It is really not a solution but a workaround. In any case, it works perfectly. You should create an icon for SharePoint PowerShell and insert this text to Target field:<\/p>\n<p><em>C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\PowerShell.exe -version 2 -NoExit \" &amp; ' C:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\14\\CONFIG\\POWERSHELL\\Registration\\\\sharepoint.ps1 ' \"<\/em><\/p>\n<div id=\"attachment_1025\" style=\"width: 386px\" class=\"wp-caption aligncenter\"><a href=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image.png\" rel=\"lightbox[1024]\"><img aria-describedby=\"caption-attachment-1025\" loading=\"lazy\" class=\"wp-image-1025 size-full\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image.png\" alt=\"SharePoint PowerShell icon properties\" width=\"376\" height=\"520\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image.png 376w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image-217x300.png 217w\" sizes=\"(max-width: 376px) 100vw, 376px\" \/><\/a><p id=\"caption-attachment-1025\" class=\"wp-caption-text\">SharePoint PowerShell icon properties<\/p><\/div>\n","protected":false},"excerpt":{"rendered":"<p>After installation several Windows updates on servers with SharePoint I had started to recieve the warnings &#8220;The local farm is not accessible. Cmdlets with FeatureDependencyId are not registered.&#8221;. It means that I can not use PowerShell for administration SharePoint.<\/p>\n","protected":false},"author":1,"featured_media":21,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[4],"tags":[5,50],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1024"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1024"}],"version-history":[{"count":2,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1024\/revisions"}],"predecessor-version":[{"id":1027,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1024\/revisions\/1027"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/21"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1024"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1024"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1024"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1022,"date":"2019-09-18T08:42:00","date_gmt":"2019-09-18T08:42:00","guid":{"rendered":"http:\/\/markimarta.com\/?p=1022"},"modified":"2019-09-18T08:42:01","modified_gmt":"2019-09-18T08:42:01","slug":"render-html-file-with-c-console-application-and-open-it-in-browser","status":"publish","type":"post","link":"http:\/\/markimarta.com\/c\/render-html-file-with-c-console-application-and-open-it-in-browser\/","title":{"rendered":"Render HTML file with C# console application and open it in browser"},"content":{"rendered":"\n<p>I created an application which rendered a report in HTML. To improve it, I wanted it to open the rendered file in browser to simplify the viewing one. In the beginning I thought about using the CMD file, but I found a better solution.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>You can execute an application from C# console application. It's a simple task to start a browser and to open the rendered file. It take to write 4 strings of code.<\/p>\n\n\n\n<p>At first, you should add string \"<em>using System.Diagnostics;<\/em>\" at the top of your app code, you can write it below System.something \ud83d\ude42 .<\/p>\n\n\n\n<p>Secondly, add these 3 lines to your app after the file is generated:<\/p>\n\n\n<p><br>\n<br>\n<!--StartFragment--><\/p>\n\n\n<p>\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 var prs = new ProcessStartInfo(\"iexplore.exe\");<br>\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0prs.Arguments = newResultFile;<br>\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Process.Start(Directory.GetCurrentDirectory() + @\"\\myfile.html\";);<\/p>\n\n\n\n<p><\/p>\n\n\n\n<p>Now build and execute the app. The rendered file will be opened with Internet explorer.<\/p>\n\n\n\n<p><\/p>\n","protected":false},"excerpt":{"rendered":"<p>I created an application which rendered a report in HTML. To improve it, I wanted it to open the rendered file in browser to simplify the viewing one. In the beginning I thought about using the CMD file, but I found a better solution.<\/p>\n","protected":false},"author":1,"featured_media":334,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[12],"tags":[],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1022"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1022"}],"version-history":[{"count":1,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1022\/revisions"}],"predecessor-version":[{"id":1023,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1022\/revisions\/1023"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/334"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1022"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1022"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1022"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1015,"date":"2019-07-11T13:20:47","date_gmt":"2019-07-11T13:20:47","guid":{"rendered":"http:\/\/markimarta.com\/?p=1015"},"modified":"2019-07-11T13:20:48","modified_gmt":"2019-07-11T13:20:48","slug":"synchronization-windows-time-with-time-servers","status":"publish","type":"post","link":"http:\/\/markimarta.com\/windows\/synchronization-windows-time-with-time-servers\/","title":{"rendered":"Synchronization Windows time with Time Servers"},"content":{"rendered":"\n<p>To sync the\ntime on a computer with Windows OS you can run the command in console:<\/p>\n\n\n\n<p><\/p>\n\n\n\n<p><em>w32tm \/resync \/force<\/em><\/p>\n\n\n\n<!--more-->\n\n\n\n<p>For the\nsuccessful result of the command, the service Windows Time must be started. If\nit is not started, you should start it from Services (Win + R and enter \"Services.msc\"\nwithout quotes) or open command line console as an administrator and enter the\ncommand:<\/p>\n\n\n\n<p><em>net start w32time<\/em><\/p>\n","protected":false},"excerpt":{"rendered":"<p>To sync the time on a computer with Windows OS you can run the command in console: w32tm \/resync \/force<\/p>\n","protected":false},"author":1,"featured_media":1016,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[7],"tags":[],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1015"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1015"}],"version-history":[{"count":1,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1015\/revisions"}],"predecessor-version":[{"id":1017,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1015\/revisions\/1017"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/1016"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1015"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1015"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1015"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1012,"date":"2019-07-05T06:28:10","date_gmt":"2019-07-05T06:28:10","guid":{"rendered":"http:\/\/markimarta.com\/?p=1012"},"modified":"2019-07-05T06:28:11","modified_gmt":"2019-07-05T06:28:11","slug":"sharepoint-feature-is-not-displayed-in-features-list","status":"publish","type":"post","link":"http:\/\/markimarta.com\/sharepoint\/sharepoint-feature-is-not-displayed-in-features-list\/","title":{"rendered":"SharePoint feature is not displayed in Features List"},"content":{"rendered":"\n<p>Today in a test SharePoint environment I found that I don't have one of SharePoint features which I have in the productive environment. I reinstalled the solution with this feature several times, but it hadn't appeared.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>I was sure that the feature is installed, I could see its folder in \"C:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\14\\TEMPLATE\\FEATURES\".<\/p>\n\n\n\n<p>I found one excellent solution to fix the problem.<\/p>\n\n\n\n<p>To check the missed features execute SharePoint 2010 Management Shell from one of the SharePoint servers and enter command:<\/p>\n\n\n\n<p><em>Install-SPFeature \u2013ScanForFeatures<\/em><\/p>\n\n\n\n<p>This will show you any features that are available in the SharePoint Root but have not been installed.<\/p>\n\n\n\n<p>You can install all the missing features using the command:<\/p>\n\n\n\n<p><em>Install-SPFeature -AllExistingFeatures<\/em><\/p>\n\n\n\n<p>After these commands all the features appeared in Features list.<\/p>\n\n\n\n<p><\/p>\n","protected":false},"excerpt":{"rendered":"<p>Today in a test SharePoint environment I found that I don&#8217;t have one of SharePoint features which I have in the productive environment. I reinstalled the solution with this feature several times, but it hadn&#8217;t appeared.<\/p>\n","protected":false},"author":1,"featured_media":770,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[4],"tags":[5,50],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1012"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1012"}],"version-history":[{"count":1,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1012\/revisions"}],"predecessor-version":[{"id":1013,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1012\/revisions\/1013"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1012"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1012"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1012"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1004,"date":"2019-04-23T15:15:33","date_gmt":"2019-04-23T15:15:33","guid":{"rendered":"http:\/\/markimarta.com\/?p=1004"},"modified":"2019-04-23T17:40:21","modified_gmt":"2019-04-23T17:40:21","slug":"display-multiline-html-text-in-sharepoint-dispform-aspx","status":"publish","type":"post","link":"http:\/\/markimarta.com\/sharepoint\/display-multiline-html-text-in-sharepoint-dispform-aspx\/","title":{"rendered":"Display multiline HTML text in SharePoint DispForm.aspx"},"content":{"rendered":"\n<p>By default, in SharePoint display form the multiline text field is written as a string without html-tags. To display text as the multiline one with HTML-tags, you should modify the default parameters of the XSL expression.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>This code is the default:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;xsl:value-of select=\"@comment\"\/>&lt;\/span><\/code><\/pre>\n\n\n\n<p>You should add&nbsp; 'disable-output-escaping=\"yes\"':<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;span>&lt;xsl:value-of select=\"@comment\" disable-output-escaping=\"yes\"\/>&lt;\/span><\/code><\/pre>\n","protected":false},"excerpt":{"rendered":"<p>By default, in SharePoint display form the multiline text field is written as a string without html-tags. To display text as the multiline one with HTML-tags, you should modify the default parameters of the XSL expression.<\/p>\n","protected":false},"author":1,"featured_media":210,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[4],"tags":[50,2],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1004"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1004"}],"version-history":[{"count":5,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1004\/revisions"}],"predecessor-version":[{"id":1009,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1004\/revisions\/1009"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/210"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1004"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1004"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1004"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1000,"date":"2019-04-22T12:39:29","date_gmt":"2019-04-22T12:39:29","guid":{"rendered":"http:\/\/markimarta.com\/?p=1000"},"modified":"2019-04-23T07:34:04","modified_gmt":"2019-04-23T07:34:04","slug":"create-save-and-stay-on-page-button-in-sharepoint-list-edit-form-page","status":"publish","type":"post","link":"http:\/\/markimarta.com\/sharepoint\/create-save-and-stay-on-page-button-in-sharepoint-list-edit-form-page\/","title":{"rendered":"Create Save and Stay on Page button in SharePoint list Edit Form page"},"content":{"rendered":"\n<p>Recently I was looking for the solution about how to add the button to \"Save and Stay on page\" for SharePoint Edit Form page. I read several articles how to do it, but most of them were no good. But also I found one useful page which became the base for my solution. <\/p>\n\n\n\n<!--more-->\n\n\n\n<p>On the page \"<a href=\"https:\/\/spjsblog.com\/forums\/topic\/adding-save-and-stay-on-page-button-in-edit-form\/\" target=\"_blank\" rel=\"noreferrer noopener\" aria-label=\"Adding &quot;Save and Stay on Page&quot; button in Edit form? (opens in a new tab)\">Adding \"Save and Stay on Page\" button in Edit form?<\/a>\" I have found a solution to modify Save button in SharePoint edit form. And for one case it worked fine.<\/p>\n\n\n\n<p>The idea of this method is to change \"Source\" parameter in the request. The \"Source\" contains the URL where page will be redirected. <br>\nUnfortunately, if you enter the page from context menu, you already have \"Source\" value. Usually, it is redirecting to \"AllItems\" or other List View. <br>\nI customized a bit of this code. In my version it doesn't matter whether it \"Source\" is filled with something or not.<\/p>\n\n\n\n<p>Add this code to $(document).ready(function() { \u2026 } :<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\tvar button = $(\"input[id$=SaveItem]\");\n\tbutton.attr(\"value\",\"Save and Stay on Page\");\n\t\/\/ change redirection behavior\n\tbutton.removeAttr(\"onclick\");\t\n    button.click(function() {\n        var elementName = $(this).attr(\"name\");\n        var aspForm = $(\"form[id=aspnetForm]\");\n        var oldPostbackUrl = aspForm.get(0).action;\n\n        var redirectUrl;\n        if(oldPostbackUrl.indexOf('Source=') != -1) {\n            var startSymbol = oldPostbackUrl.indexOf('Source=');\n            redirectUrl = oldPostbackUrl.substring(0, startSymbol-1);\n        }\n        else {\n            redirectUrl = oldPostbackUrl;\n        }\n        \n        var newPostbackUrl = redirectUrl + \"&amp;Source=\" +redirectUrl;\n\n        if (!PreSaveItem())  return false;\n\n        WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(elementName, \"\", true, \"\", newPostbackUrl, false, true));\n    });<\/code><\/pre>\n\n\n\n<p>One more useful customization is to add to edit form new Save button. You should use SharePoint designer to do it. Find the code with Save Button and add the code for new button somewhere near it:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;input name=\"ToApprove\" id=\"ToApprove\" type=\"button\" onclick=\"ExecuteBeforeSaving(); {ddwrt:GenFireServerEvent('__commit;__redirect={\/srv\/mysite\/Lists\/Orders\/}')};\" value=\"Send to approve\" \/><\/code><\/pre>\n\n\n\n<p><\/p>\n\n\n\n<p>In the function \"ExecuteBeforeSaving()\" you can add your logic and checks. Using this function gives you more functionality than \"PreSaveItem()\".<\/p>\n\n\n\n<p>There are two Save buttons in the form. That's why you should add two extra buttons. And remember that both of them must have unique IDs.<\/p>\n\n\n\n<p><\/p>\n","protected":false},"excerpt":{"rendered":"<p>Recently I was looking for the solution about how to add the button to &#8220;Save and Stay on page&#8221; for SharePoint Edit Form page. I read several articles how to do it, but most of them were no good. But also I found one useful page which became the base for my solution.<\/p>\n","protected":false},"author":1,"featured_media":770,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[4],"tags":[23,50,2],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1000"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1000"}],"version-history":[{"count":3,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1000\/revisions"}],"predecessor-version":[{"id":1003,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1000\/revisions\/1003"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1000"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1000"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1000"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":986,"date":"2019-04-08T15:15:48","date_gmt":"2019-04-08T15:15:48","guid":{"rendered":"http:\/\/markimarta.com\/?p=986"},"modified":"2019-04-19T08:34:11","modified_gmt":"2019-04-19T08:34:11","slug":"open-specific-tab-on-page-load-with-jquery-ui","status":"publish","type":"post","link":"http:\/\/markimarta.com\/js\/open-specific-tab-on-page-load-with-jquery-ui\/","title":{"rendered":"Open specific tab on page load with JQuery UI"},"content":{"rendered":"\n<p>I made a simple HTML page with JQuery UI tabs. But the customer asked to give URLs for each tab. I was a bit surprised with it, because I remember only how to make default tab on page load. You can do it with the syntax like this:<\/p>\n\n\n\n<p><em>$(\"#tabs\").tabs( { selected: x&nbsp; });<\/em><\/p>\n\n\n\n<p>&nbsp;where 'x' is integer index of tab. So, the task was to determine which tab is requested.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>I got the collection of tab links (a href='#') and got the values of its links. Also I parsed the URL and got the 'hash' value of URL. Hash has the value after '#'. After that I looked for whether the string of hash is contained in href attributes.<\/p>\n\n\n\n<p>There are two parts of the code - Javascript and HTML.  At first, Javascript:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;script>\n$(document).ready(function () {\n                var selectedTab = 0;\n                var mytabs = $('#tabs ul li a').each(function(x, obj) {\n\n                              if(obj.hash.indexOf(location.hash) != -1 &amp;&amp; location.hash != '') {\n                                               selectedTab = x;\n                               }\n                });\n                $(\"#tabs\").tabs( { selected: selectedTab  });      \n});\n&lt;\/script><\/code><\/pre>\n\n\n\n<p>The second part - HTML code - looks very coomon.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;div id=\"tabs\">\n    &lt;ul>\n        &lt;li>&lt;a href=\"#tabs-1\">Title of tab 1&lt;\/a>&lt;\/li>\n        &lt;li>&lt;a href=\"#tabs-2\">Title of tab 2&lt;\/a>&lt;\/li>\n        &lt;li>&lt;a href=\"#tabs-3\">Title of tab 3&lt;\/a>&lt;\/li>\n    &lt;\/ul>\n    &lt;div id=\"tabs-1\">\n                Text for tab-1\n &lt;\/div>\n\n    &lt;div id=\"tabs-2\">\n          Text for tab-2\n    &lt;\/div>\n    &lt;div id=\"tabs-3\">\n       Text for tab-3\n     &lt;\/div>\n&lt;\/div><\/code><\/pre>\n","protected":false},"excerpt":{"rendered":"<p>I made a simple HTML page with JQuery UI tabs. But the customer asked to give URLs for each tab. I was a bit surprised with it, because I remember only how to make default tab on page load. You can do it with the syntax like this: $(&#8220;#tabs&#8221;).tabs( { selected: x&nbsp; }); &nbsp;where &#8216;x&#8217; [&hellip;]<\/p>\n","protected":false},"author":1,"featured_media":777,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[70],"tags":[74,23,22,51,42],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/986"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=986"}],"version-history":[{"count":9,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/986\/revisions"}],"predecessor-version":[{"id":999,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/986\/revisions\/999"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/777"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=986"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=986"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=986"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":984,"date":"2019-04-04T04:39:19","date_gmt":"2019-04-04T04:39:19","guid":{"rendered":"http:\/\/markimarta.com\/?p=984"},"modified":"2019-04-04T04:39:20","modified_gmt":"2019-04-04T04:39:20","slug":"flush-blob-cache-in-sharepoint","status":"publish","type":"post","link":"http:\/\/markimarta.com\/sharepoint\/flush-blob-cache-in-sharepoint\/","title":{"rendered":"Flush Blob cache in SharePoint"},"content":{"rendered":"\n<p>To flush blob cache on SharePoint servers you should execute a PowerShell script on each front end server. Blob cache is set on each front-end server in a farm, that is why you have to do this way.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p> Of course, you can use 'Invoke-Command' to execute script on other servers. The script to flush blob cache is here:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$webApp = Get-SPWebApplication \"&lt;WebApplicationURL>\"\n[Microsoft.SharePoint.Publishing.PublishingCache]::FlushBlobCache($webApp)\nWrite-Host \"Flushed the BLOB cache for:\" $webApp\n<\/code><\/pre>\n","protected":false},"excerpt":{"rendered":"<p>To flush blob cache on SharePoint servers you should execute a PowerShell script on each front end server. Blob cache is set on each front-end server in a farm, that is why you have to do this way.<\/p>\n","protected":false},"author":1,"featured_media":770,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[4],"tags":[21,5,50],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/984"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=984"}],"version-history":[{"count":1,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/984\/revisions"}],"predecessor-version":[{"id":985,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/984\/revisions\/985"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=984"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=984"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=984"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":980,"date":"2019-04-03T08:15:08","date_gmt":"2019-04-03T08:15:08","guid":{"rendered":"http:\/\/markimarta.com\/?p=980"},"modified":"2019-04-03T08:15:09","modified_gmt":"2019-04-03T08:15:09","slug":"truncate-log-files-with-powershell","status":"publish","type":"post","link":"http:\/\/markimarta.com\/windows\/truncate-log-files-with-powershell\/","title":{"rendered":"Truncate log files with PowerShell"},"content":{"rendered":"\n<p>It is a very common task to truncate log files. You don't notice them and they reach the limit size always not in the appropriate time. And when this moment occurs, it's much better to have a quick solution to decrease the size of log files. But even much better to clean logs automatically on the schedule.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>Some time ago I wrote about how to truncate log files in Linux operational systems. Now it's time to write about Windows.<\/p>\n\n\n\n<p>In Windows there is a PowerShell cmdlet which you can use to clear contents of a file.<\/p>\n\n\n\n<p>To clear contents of a single file:<\/p>\n\n\n\n<p><em>Clear-Content C:\\Temp\\TestFile.txt<\/em><\/p>\n\n\n\n<p>To clear contents of all files with the \".log\" file extension:<\/p>\n\n\n\n<p><em>Clear-Content -path * -filter *.log \u2013force<\/em><\/p>\n\n\n\n<p>\"Clear-Content\" only clears the contents of a file. It doesn\u2019t delete the file. To delete the file use cmdlet Remove-Item:<\/p>\n\n\n\n<p><em>Remove-Item C:\\temp\\file2delete.txt<\/em><\/p>\n","protected":false},"excerpt":{"rendered":"<p>It is a very common task to truncate log files. You don&#8217;t notice them and they reach the limit size always not in the appropriate time. And when this moment occurs, it&#8217;s much better to have a quick solution to decrease the size of log files. But even much better to clean logs automatically on [&hellip;]<\/p>\n","protected":false},"author":1,"featured_media":21,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[7],"tags":[5],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/980"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=980"}],"version-history":[{"count":1,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/980\/revisions"}],"predecessor-version":[{"id":981,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/980\/revisions\/981"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/21"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=980"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=980"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=980"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":976,"date":"2019-03-30T05:54:52","date_gmt":"2019-03-30T05:54:52","guid":{"rendered":"http:\/\/markimarta.com\/?p=976"},"modified":"2019-03-30T05:54:53","modified_gmt":"2019-03-30T05:54:53","slug":"render-and-save-pdf-file-from-html-in-mvc-5-application","status":"publish","type":"post","link":"http:\/\/markimarta.com\/c\/render-and-save-pdf-file-from-html-in-mvc-5-application\/","title":{"rendered":"Render and Save PDF file from HTML in MVC 5 Application"},"content":{"rendered":"\n<p>In my application I had rendered JSON data with AngularJS and I had to send it to a controller in my MVC application to render PDF file and to allow a user to save it.  So, the task was dynamically to submit the request, render a file and allow user to save it.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>As soon as I generated the data to send in AngularJS, I wanted to use POST request. But in AngularJS I didn't find how to do it without Ajax, that's why I found a workaround. I don't even  know, may be it's not a workaround but the solution. I still use it in my projects. I send Ajax POST request to a method which renders my content, and it returns me a JSON with my parameters.<\/p>\n\n\n\n<p>For submitting data, add this code to JS:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\t$.ajax({\n\t\ttype: 'POST',\n\t\turl: '\/ImportExport\/ExportPDF',\n\t\tdata: { 'data': qsend },\n\t\tsuccess: function (res) {\n\t\t\twindow.location = '\/ImportExport\/DownloadPDF?fileGuid=' + res.FileGuid \n\t\t\t\t\t\t\t  + '&amp;filename=' + res.FileName;\n\t\t\t$('.result').html(res);\n\t\t}\n\t\t,\n\t\tfailure: function(errMsg) {\n\t\t\talert(errMsg);\n\t\t}\t\n\t});\n<\/code><\/pre>\n\n\n\n<p>To render PDF files I prefer OpenHtmlToPdf package. You can add it to your project from Nuget, in Package Manager Console enter this command:<br>\nInstall-Package OpenHtmlToPdf -Version 1.12.0<\/p>\n\n\n\n<p>Add \"using OpenHtmlToPdf;\" to controller code.<\/p>\n\n\n\n<p>In your controller you have to create two methods. One of the methods renders the file and saves it to a temporary data storage, the second one gets rendered data from temp storage and returns it in the appropriate MIME type or format.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>        [HttpGet]\n        public virtual ActionResult DownloadPDF(string fileGuid, string fileName)\n        {\n            if (TempData[fileGuid] != null)\n            {\n                byte[] data = TempData[fileGuid] as byte[];\n                return File(data, \"application\/pdf\", fileName);\n            }\n            else\n            {\n                \/\/ Problem - Log the error, generate a blank file,\n                \/\/           redirect to another controller action - whatever fits with your application\n                return new EmptyResult();\n            }\n        }<\/code><\/pre>\n\n\n\n<p>The second method in controller must render PDF file content and to store it in TempData.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>        public ActionResult ExportPDF(string data)\n        {\n\t\t\/\/This handle (guid) will be used to connect with the  TempData[] \n            string handle = Guid.NewGuid().ToString();\n            List&lt;BossEmployee> be = JsonConvert.DeserializeObject&lt;List&lt;BossEmployee>>(data);\n            string htmlText = String.Format(@\"\n&lt;h1>Export to pdf&lt;\/h1>&lt;p>Here is the text to be exported to PDF&lt;\/p>\");\n            }\n            string html = htmlText;\n            using (MemoryStream memoryStream = new MemoryStream())\n            {                \n                var pdf = Pdf\n                .From(html)\n                .WithGlobalSetting(\"orientation\", \"Landscape\")\n                .WithObjectSetting(\"web.defaultEncoding\", \"utf-8\")\n                .Content();\n                TempData[handle] = pdf;\n            }\n\n            \/\/ Return both as a filename so and the handle\n            return new JsonResult()\n            {\n                Data = new { FileGuid = handle, FileName = \"TestReportOutput.pdf\" }\n            };\n        }<\/code><\/pre>\n\n\n\n<p>If a user clicks on a button \"Make PDF\" or something like this, PDF file will be downloaded to his or her computer.<\/p>\n\n\n\n<p><\/p>\n","protected":false},"excerpt":{"rendered":"<p>In my application I had rendered JSON data with AngularJS and I had to send it to a controller in my MVC application to render PDF file and to allow a user to save it. So, the task was dynamically to submit the request, render a file and allow user to save it.<\/p>\n","protected":false},"author":1,"featured_media":978,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":[],"categories":[12],"tags":[13,84,83],"_links":{"self":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/976"}],"collection":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"}],"replies":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=976"}],"version-history":[{"count":1,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/976\/revisions"}],"predecessor-version":[{"id":977,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/976\/revisions\/977"}],"wp:featuredmedia":[{"embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/978"}],"wp:attachment":[{"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=976"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=976"},{"taxonomy":"post_tag","embeddable":true,"href":"http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=976"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]
+[
+    {
+        "id": 1024,
+        "date": "2019-09-19T08:02:47",
+        "date_gmt": "2019-09-19T08:02:47",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1024"
+        },
+        "modified": "2019-09-19T08:04:35",
+        "modified_gmt": "2019-09-19T08:04:35",
+        "slug": "fix-sharepoint-2010-powershell-error-the-local-farm-is-not-accessible",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/fix-sharepoint-2010-powershell-error-the-local-farm-is-not-accessible\/",
+        "title": {
+            "rendered": "Fix SharePoint 2010 PowerShell Error \"The local farm is not accessible\""
+        },
+        "content": {
+            "rendered": "<p>After installation several Windows updates on servers with SharePoint I had started to recieve the warnings \"The local farm is not accessible. Cmdlets with FeatureDependencyId are not registered.\". It means that I can not use PowerShell for administration SharePoint.<\/p>\n<p><!--more--><\/p>\n<p>There are two possible ways to solve the problem.<\/p>\n<p>The first one is to remove all the updates. It's a bad idea. At first, you can not uninstall all the updates. Secondly, OS can stop working after removing updates. And finally, updates will be installed again whether you want it or not.<\/p>\n<p>That is why I recommend you to use the second solution. It is really not a solution but a workaround. In any case, it works perfectly. You should create an icon for SharePoint PowerShell and insert this text to Target field:<\/p>\n<p><em>C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\PowerShell.exe -version 2 -NoExit \" &amp; ' C:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\14\\CONFIG\\POWERSHELL\\Registration\\\\sharepoint.ps1 ' \"<\/em><\/p>\n<div id=\"attachment_1025\" style=\"width: 386px\" class=\"wp-caption aligncenter\"><a href=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image.png\" rel=\"lightbox[1024]\"><img aria-describedby=\"caption-attachment-1025\" loading=\"lazy\" class=\"wp-image-1025 size-full\" src=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image.png\" alt=\"SharePoint PowerShell icon properties\" width=\"376\" height=\"520\" srcset=\"http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image.png 376w, http:\/\/markimarta.com\/wp-content\/uploads\/2019\/09\/word-image-217x300.png 217w\" sizes=\"(max-width: 376px) 100vw, 376px\" \/><\/a><p id=\"caption-attachment-1025\" class=\"wp-caption-text\">SharePoint PowerShell icon properties<\/p><\/div>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>After installation several Windows updates on servers with SharePoint I had started to recieve the warnings &#8220;The local farm is not accessible. Cmdlets with FeatureDependencyId are not registered.&#8221;. It means that I can not use PowerShell for administration SharePoint.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 21,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            5,
+            50
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1024"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1024"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 2,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1024\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1027,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1024\/revisions\/1027"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/21"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1024"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1024"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1024"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1022,
+        "date": "2019-09-18T08:42:00",
+        "date_gmt": "2019-09-18T08:42:00",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1022"
+        },
+        "modified": "2019-09-18T08:42:01",
+        "modified_gmt": "2019-09-18T08:42:01",
+        "slug": "render-html-file-with-c-console-application-and-open-it-in-browser",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/c\/render-html-file-with-c-console-application-and-open-it-in-browser\/",
+        "title": {
+            "rendered": "Render HTML file with C# console application and open it in browser"
+        },
+        "content": {
+            "rendered": "\n<p>I created an application which rendered a report in HTML. To improve it, I wanted it to open the rendered file in browser to simplify the viewing one. In the beginning I thought about using the CMD file, but I found a better solution.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>You can execute an application from C# console application. It's a simple task to start a browser and to open the rendered file. It take to write 4 strings of code.<\/p>\n\n\n\n<p>At first, you should add string \"<em>using System.Diagnostics;<\/em>\" at the top of your app code, you can write it below System.something \ud83d\ude42 .<\/p>\n\n\n\n<p>Secondly, add these 3 lines to your app after the file is generated:<\/p>\n\n\n<p><br>\n<br>\n<!--StartFragment--><\/p>\n\n\n<p>\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 var prs = new ProcessStartInfo(\"iexplore.exe\");<br>\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0prs.Arguments = newResultFile;<br>\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Process.Start(Directory.GetCurrentDirectory() + @\"\\myfile.html\";);<\/p>\n\n\n\n<p><\/p>\n\n\n\n<p>Now build and execute the app. The rendered file will be opened with Internet explorer.<\/p>\n\n\n\n<p><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>I created an application which rendered a report in HTML. To improve it, I wanted it to open the rendered file in browser to simplify the viewing one. In the beginning I thought about using the CMD file, but I found a better solution.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 334,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            12
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1022"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1022"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1022\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1023,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1022\/revisions\/1023"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/334"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1022"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1022"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1022"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1015,
+        "date": "2019-07-11T13:20:47",
+        "date_gmt": "2019-07-11T13:20:47",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1015"
+        },
+        "modified": "2019-07-11T13:20:48",
+        "modified_gmt": "2019-07-11T13:20:48",
+        "slug": "synchronization-windows-time-with-time-servers",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/windows\/synchronization-windows-time-with-time-servers\/",
+        "title": {
+            "rendered": "Synchronization Windows time with Time Servers"
+        },
+        "content": {
+            "rendered": "\n<p>To sync the\ntime on a computer with Windows OS you can run the command in console:<\/p>\n\n\n\n<p><\/p>\n\n\n\n<p><em>w32tm \/resync \/force<\/em><\/p>\n\n\n\n<!--more-->\n\n\n\n<p>For the\nsuccessful result of the command, the service Windows Time must be started. If\nit is not started, you should start it from Services (Win + R and enter \"Services.msc\"\nwithout quotes) or open command line console as an administrator and enter the\ncommand:<\/p>\n\n\n\n<p><em>net start w32time<\/em><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>To sync the time on a computer with Windows OS you can run the command in console: w32tm \/resync \/force<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 1016,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            7
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1015"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1015"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1015\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1017,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1015\/revisions\/1017"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/1016"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1015"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1015"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1015"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1012,
+        "date": "2019-07-05T06:28:10",
+        "date_gmt": "2019-07-05T06:28:10",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1012"
+        },
+        "modified": "2019-07-05T06:28:11",
+        "modified_gmt": "2019-07-05T06:28:11",
+        "slug": "sharepoint-feature-is-not-displayed-in-features-list",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/sharepoint-feature-is-not-displayed-in-features-list\/",
+        "title": {
+            "rendered": "SharePoint feature is not displayed in Features List"
+        },
+        "content": {
+            "rendered": "\n<p>Today in a test SharePoint environment I found that I don't have one of SharePoint features which I have in the productive environment. I reinstalled the solution with this feature several times, but it hadn't appeared.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>I was sure that the feature is installed, I could see its folder in \"C:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\14\\TEMPLATE\\FEATURES\".<\/p>\n\n\n\n<p>I found one excellent solution to fix the problem.<\/p>\n\n\n\n<p>To check the missed features execute SharePoint 2010 Management Shell from one of the SharePoint servers and enter command:<\/p>\n\n\n\n<p><em>Install-SPFeature \u2013ScanForFeatures<\/em><\/p>\n\n\n\n<p>This will show you any features that are available in the SharePoint Root but have not been installed.<\/p>\n\n\n\n<p>You can install all the missing features using the command:<\/p>\n\n\n\n<p><em>Install-SPFeature -AllExistingFeatures<\/em><\/p>\n\n\n\n<p>After these commands all the features appeared in Features list.<\/p>\n\n\n\n<p><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Today in a test SharePoint environment I found that I don&#8217;t have one of SharePoint features which I have in the productive environment. I reinstalled the solution with this feature several times, but it hadn&#8217;t appeared.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 770,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            5,
+            50
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1012"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1012"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1012\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1013,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1012\/revisions\/1013"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1012"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1012"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1012"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1004,
+        "date": "2019-04-23T15:15:33",
+        "date_gmt": "2019-04-23T15:15:33",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1004"
+        },
+        "modified": "2019-04-23T17:40:21",
+        "modified_gmt": "2019-04-23T17:40:21",
+        "slug": "display-multiline-html-text-in-sharepoint-dispform-aspx",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/display-multiline-html-text-in-sharepoint-dispform-aspx\/",
+        "title": {
+            "rendered": "Display multiline HTML text in SharePoint DispForm.aspx"
+        },
+        "content": {
+            "rendered": "\n<p>By default, in SharePoint display form the multiline text field is written as a string without html-tags. To display text as the multiline one with HTML-tags, you should modify the default parameters of the XSL expression.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>This code is the default:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;xsl:value-of select=\"@comment\"\/>&lt;\/span><\/code><\/pre>\n\n\n\n<p>You should add&nbsp; 'disable-output-escaping=\"yes\"':<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;span>&lt;xsl:value-of select=\"@comment\" disable-output-escaping=\"yes\"\/>&lt;\/span><\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>By default, in SharePoint display form the multiline text field is written as a string without html-tags. To display text as the multiline one with HTML-tags, you should modify the default parameters of the XSL expression.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 210,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            50,
+            2
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1004"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1004"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 5,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1004\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1009,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1004\/revisions\/1009"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/210"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1004"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1004"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1004"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 1000,
+        "date": "2019-04-22T12:39:29",
+        "date_gmt": "2019-04-22T12:39:29",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=1000"
+        },
+        "modified": "2019-04-23T07:34:04",
+        "modified_gmt": "2019-04-23T07:34:04",
+        "slug": "create-save-and-stay-on-page-button-in-sharepoint-list-edit-form-page",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/create-save-and-stay-on-page-button-in-sharepoint-list-edit-form-page\/",
+        "title": {
+            "rendered": "Create Save and Stay on Page button in SharePoint list Edit Form page"
+        },
+        "content": {
+            "rendered": "\n<p>Recently I was looking for the solution about how to add the button to \"Save and Stay on page\" for SharePoint Edit Form page. I read several articles how to do it, but most of them were no good. But also I found one useful page which became the base for my solution. <\/p>\n\n\n\n<!--more-->\n\n\n\n<p>On the page \"<a href=\"https:\/\/spjsblog.com\/forums\/topic\/adding-save-and-stay-on-page-button-in-edit-form\/\" target=\"_blank\" rel=\"noreferrer noopener\" aria-label=\"Adding &quot;Save and Stay on Page&quot; button in Edit form? (opens in a new tab)\">Adding \"Save and Stay on Page\" button in Edit form?<\/a>\" I have found a solution to modify Save button in SharePoint edit form. And for one case it worked fine.<\/p>\n\n\n\n<p>The idea of this method is to change \"Source\" parameter in the request. The \"Source\" contains the URL where page will be redirected. <br>\nUnfortunately, if you enter the page from context menu, you already have \"Source\" value. Usually, it is redirecting to \"AllItems\" or other List View. <br>\nI customized a bit of this code. In my version it doesn't matter whether it \"Source\" is filled with something or not.<\/p>\n\n\n\n<p>Add this code to $(document).ready(function() { \u2026 } :<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\tvar button = $(\"input[id$=SaveItem]\");\n\tbutton.attr(\"value\",\"Save and Stay on Page\");\n\t\/\/ change redirection behavior\n\tbutton.removeAttr(\"onclick\");\t\n    button.click(function() {\n        var elementName = $(this).attr(\"name\");\n        var aspForm = $(\"form[id=aspnetForm]\");\n        var oldPostbackUrl = aspForm.get(0).action;\n\n        var redirectUrl;\n        if(oldPostbackUrl.indexOf('Source=') != -1) {\n            var startSymbol = oldPostbackUrl.indexOf('Source=');\n            redirectUrl = oldPostbackUrl.substring(0, startSymbol-1);\n        }\n        else {\n            redirectUrl = oldPostbackUrl;\n        }\n        \n        var newPostbackUrl = redirectUrl + \"&amp;Source=\" +redirectUrl;\n\n        if (!PreSaveItem())  return false;\n\n        WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(elementName, \"\", true, \"\", newPostbackUrl, false, true));\n    });<\/code><\/pre>\n\n\n\n<p>One more useful customization is to add to edit form new Save button. You should use SharePoint designer to do it. Find the code with Save Button and add the code for new button somewhere near it:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;input name=\"ToApprove\" id=\"ToApprove\" type=\"button\" onclick=\"ExecuteBeforeSaving(); {ddwrt:GenFireServerEvent('__commit;__redirect={\/srv\/mysite\/Lists\/Orders\/}')};\" value=\"Send to approve\" \/><\/code><\/pre>\n\n\n\n<p><\/p>\n\n\n\n<p>In the function \"ExecuteBeforeSaving()\" you can add your logic and checks. Using this function gives you more functionality than \"PreSaveItem()\".<\/p>\n\n\n\n<p>There are two Save buttons in the form. That's why you should add two extra buttons. And remember that both of them must have unique IDs.<\/p>\n\n\n\n<p><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Recently I was looking for the solution about how to add the button to &#8220;Save and Stay on page&#8221; for SharePoint Edit Form page. I read several articles how to do it, but most of them were no good. But also I found one useful page which became the base for my solution.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 770,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            23,
+            50,
+            2
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1000"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=1000"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 3,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1000\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1003,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/1000\/revisions\/1003"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=1000"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=1000"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=1000"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 986,
+        "date": "2019-04-08T15:15:48",
+        "date_gmt": "2019-04-08T15:15:48",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=986"
+        },
+        "modified": "2019-04-19T08:34:11",
+        "modified_gmt": "2019-04-19T08:34:11",
+        "slug": "open-specific-tab-on-page-load-with-jquery-ui",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/js\/open-specific-tab-on-page-load-with-jquery-ui\/",
+        "title": {
+            "rendered": "Open specific tab on page load with JQuery UI"
+        },
+        "content": {
+            "rendered": "\n<p>I made a simple HTML page with JQuery UI tabs. But the customer asked to give URLs for each tab. I was a bit surprised with it, because I remember only how to make default tab on page load. You can do it with the syntax like this:<\/p>\n\n\n\n<p><em>$(\"#tabs\").tabs( { selected: x&nbsp; });<\/em><\/p>\n\n\n\n<p>&nbsp;where 'x' is integer index of tab. So, the task was to determine which tab is requested.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>I got the collection of tab links (a href='#') and got the values of its links. Also I parsed the URL and got the 'hash' value of URL. Hash has the value after '#'. After that I looked for whether the string of hash is contained in href attributes.<\/p>\n\n\n\n<p>There are two parts of the code - Javascript and HTML.  At first, Javascript:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;script>\n$(document).ready(function () {\n                var selectedTab = 0;\n                var mytabs = $('#tabs ul li a').each(function(x, obj) {\n\n                              if(obj.hash.indexOf(location.hash) != -1 &amp;&amp; location.hash != '') {\n                                               selectedTab = x;\n                               }\n                });\n                $(\"#tabs\").tabs( { selected: selectedTab  });      \n});\n&lt;\/script><\/code><\/pre>\n\n\n\n<p>The second part - HTML code - looks very coomon.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;div id=\"tabs\">\n    &lt;ul>\n        &lt;li>&lt;a href=\"#tabs-1\">Title of tab 1&lt;\/a>&lt;\/li>\n        &lt;li>&lt;a href=\"#tabs-2\">Title of tab 2&lt;\/a>&lt;\/li>\n        &lt;li>&lt;a href=\"#tabs-3\">Title of tab 3&lt;\/a>&lt;\/li>\n    &lt;\/ul>\n    &lt;div id=\"tabs-1\">\n                Text for tab-1\n &lt;\/div>\n\n    &lt;div id=\"tabs-2\">\n          Text for tab-2\n    &lt;\/div>\n    &lt;div id=\"tabs-3\">\n       Text for tab-3\n     &lt;\/div>\n&lt;\/div><\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>I made a simple HTML page with JQuery UI tabs. But the customer asked to give URLs for each tab. I was a bit surprised with it, because I remember only how to make default tab on page load. You can do it with the syntax like this: $(&#8220;#tabs&#8221;).tabs( { selected: x&nbsp; }); &nbsp;where &#8216;x&#8217; [&hellip;]<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 777,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            70
+        ],
+        "tags": [
+            74,
+            23,
+            22,
+            51,
+            42
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/986"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=986"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 9,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/986\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 999,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/986\/revisions\/999"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/777"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=986"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=986"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=986"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 984,
+        "date": "2019-04-04T04:39:19",
+        "date_gmt": "2019-04-04T04:39:19",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=984"
+        },
+        "modified": "2019-04-04T04:39:20",
+        "modified_gmt": "2019-04-04T04:39:20",
+        "slug": "flush-blob-cache-in-sharepoint",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/sharepoint\/flush-blob-cache-in-sharepoint\/",
+        "title": {
+            "rendered": "Flush Blob cache in SharePoint"
+        },
+        "content": {
+            "rendered": "\n<p>To flush blob cache on SharePoint servers you should execute a PowerShell script on each front end server. Blob cache is set on each front-end server in a farm, that is why you have to do this way.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p> Of course, you can use 'Invoke-Command' to execute script on other servers. The script to flush blob cache is here:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$webApp = Get-SPWebApplication \"&lt;WebApplicationURL>\"\n[Microsoft.SharePoint.Publishing.PublishingCache]::FlushBlobCache($webApp)\nWrite-Host \"Flushed the BLOB cache for:\" $webApp\n<\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>To flush blob cache on SharePoint servers you should execute a PowerShell script on each front end server. Blob cache is set on each front-end server in a farm, that is why you have to do this way.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 770,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            4
+        ],
+        "tags": [
+            21,
+            5,
+            50
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/984"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=984"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/984\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 985,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/984\/revisions\/985"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/770"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=984"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=984"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=984"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 980,
+        "date": "2019-04-03T08:15:08",
+        "date_gmt": "2019-04-03T08:15:08",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=980"
+        },
+        "modified": "2019-04-03T08:15:09",
+        "modified_gmt": "2019-04-03T08:15:09",
+        "slug": "truncate-log-files-with-powershell",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/windows\/truncate-log-files-with-powershell\/",
+        "title": {
+            "rendered": "Truncate log files with PowerShell"
+        },
+        "content": {
+            "rendered": "\n<p>It is a very common task to truncate log files. You don't notice them and they reach the limit size always not in the appropriate time. And when this moment occurs, it's much better to have a quick solution to decrease the size of log files. But even much better to clean logs automatically on the schedule.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>Some time ago I wrote about how to truncate log files in Linux operational systems. Now it's time to write about Windows.<\/p>\n\n\n\n<p>In Windows there is a PowerShell cmdlet which you can use to clear contents of a file.<\/p>\n\n\n\n<p>To clear contents of a single file:<\/p>\n\n\n\n<p><em>Clear-Content C:\\Temp\\TestFile.txt<\/em><\/p>\n\n\n\n<p>To clear contents of all files with the \".log\" file extension:<\/p>\n\n\n\n<p><em>Clear-Content -path * -filter *.log \u2013force<\/em><\/p>\n\n\n\n<p>\"Clear-Content\" only clears the contents of a file. It doesn\u2019t delete the file. To delete the file use cmdlet Remove-Item:<\/p>\n\n\n\n<p><em>Remove-Item C:\\temp\\file2delete.txt<\/em><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>It is a very common task to truncate log files. You don&#8217;t notice them and they reach the limit size always not in the appropriate time. And when this moment occurs, it&#8217;s much better to have a quick solution to decrease the size of log files. But even much better to clean logs automatically on [&hellip;]<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 21,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            7
+        ],
+        "tags": [
+            5
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/980"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=980"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/980\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 981,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/980\/revisions\/981"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/21"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=980"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=980"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=980"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 976,
+        "date": "2019-03-30T05:54:52",
+        "date_gmt": "2019-03-30T05:54:52",
+        "guid": {
+            "rendered": "http:\/\/markimarta.com\/?p=976"
+        },
+        "modified": "2019-03-30T05:54:53",
+        "modified_gmt": "2019-03-30T05:54:53",
+        "slug": "render-and-save-pdf-file-from-html-in-mvc-5-application",
+        "status": "publish",
+        "type": "post",
+        "link": "http:\/\/markimarta.com\/c\/render-and-save-pdf-file-from-html-in-mvc-5-application\/",
+        "title": {
+            "rendered": "Render and Save PDF file from HTML in MVC 5 Application"
+        },
+        "content": {
+            "rendered": "\n<p>In my application I had rendered JSON data with AngularJS and I had to send it to a controller in my MVC application to render PDF file and to allow a user to save it.  So, the task was dynamically to submit the request, render a file and allow user to save it.<\/p>\n\n\n\n<!--more-->\n\n\n\n<p>As soon as I generated the data to send in AngularJS, I wanted to use POST request. But in AngularJS I didn't find how to do it without Ajax, that's why I found a workaround. I don't even  know, may be it's not a workaround but the solution. I still use it in my projects. I send Ajax POST request to a method which renders my content, and it returns me a JSON with my parameters.<\/p>\n\n\n\n<p>For submitting data, add this code to JS:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\t$.ajax({\n\t\ttype: 'POST',\n\t\turl: '\/ImportExport\/ExportPDF',\n\t\tdata: { 'data': qsend },\n\t\tsuccess: function (res) {\n\t\t\twindow.location = '\/ImportExport\/DownloadPDF?fileGuid=' + res.FileGuid \n\t\t\t\t\t\t\t  + '&amp;filename=' + res.FileName;\n\t\t\t$('.result').html(res);\n\t\t}\n\t\t,\n\t\tfailure: function(errMsg) {\n\t\t\talert(errMsg);\n\t\t}\t\n\t});\n<\/code><\/pre>\n\n\n\n<p>To render PDF files I prefer OpenHtmlToPdf package. You can add it to your project from Nuget, in Package Manager Console enter this command:<br>\nInstall-Package OpenHtmlToPdf -Version 1.12.0<\/p>\n\n\n\n<p>Add \"using OpenHtmlToPdf;\" to controller code.<\/p>\n\n\n\n<p>In your controller you have to create two methods. One of the methods renders the file and saves it to a temporary data storage, the second one gets rendered data from temp storage and returns it in the appropriate MIME type or format.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>        [HttpGet]\n        public virtual ActionResult DownloadPDF(string fileGuid, string fileName)\n        {\n            if (TempData[fileGuid] != null)\n            {\n                byte[] data = TempData[fileGuid] as byte[];\n                return File(data, \"application\/pdf\", fileName);\n            }\n            else\n            {\n                \/\/ Problem - Log the error, generate a blank file,\n                \/\/           redirect to another controller action - whatever fits with your application\n                return new EmptyResult();\n            }\n        }<\/code><\/pre>\n\n\n\n<p>The second method in controller must render PDF file content and to store it in TempData.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>        public ActionResult ExportPDF(string data)\n        {\n\t\t\/\/This handle (guid) will be used to connect with the  TempData[] \n            string handle = Guid.NewGuid().ToString();\n            List&lt;BossEmployee> be = JsonConvert.DeserializeObject&lt;List&lt;BossEmployee>>(data);\n            string htmlText = String.Format(@\"\n&lt;h1>Export to pdf&lt;\/h1>&lt;p>Here is the text to be exported to PDF&lt;\/p>\");\n            }\n            string html = htmlText;\n            using (MemoryStream memoryStream = new MemoryStream())\n            {                \n                var pdf = Pdf\n                .From(html)\n                .WithGlobalSetting(\"orientation\", \"Landscape\")\n                .WithObjectSetting(\"web.defaultEncoding\", \"utf-8\")\n                .Content();\n                TempData[handle] = pdf;\n            }\n\n            \/\/ Return both as a filename so and the handle\n            return new JsonResult()\n            {\n                Data = new { FileGuid = handle, FileName = \"TestReportOutput.pdf\" }\n            };\n        }<\/code><\/pre>\n\n\n\n<p>If a user clicks on a button \"Make PDF\" or something like this, PDF file will be downloaded to his or her computer.<\/p>\n\n\n\n<p><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>In my application I had rendered JSON data with AngularJS and I had to send it to a controller in my MVC application to render PDF file and to allow a user to save it. So, the task was dynamically to submit the request, render a file and allow user to save it.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 978,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            12
+        ],
+        "tags": [
+            13,
+            84,
+            83
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/976"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/comments?post=976"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/976\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 977,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/posts\/976\/revisions\/977"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media\/978"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/media?parent=976"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/categories?post=976"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "http:\/\/markimarta.com\/wp-json\/wp\/v2\/tags?post=976"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    }
+]
