@@ -51,7 +51,9 @@ const Renderitems = () => {
             <ul>
                 {items.map((item, index) => {
                     return (
+                        <>
                         <li key={'cat'+ index}>{item.name}</li>
+                        </>
                     )
                 }
                 )}

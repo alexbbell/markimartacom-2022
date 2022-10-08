@@ -1,4 +1,6 @@
 import React, { Component, useEffect, useState } from 'react'
+import parse from 'html-react-parser'
+import dateToDDmmYYYY from '../Middleware/Helpers.js'
 
 export default function Mainrow () {
 
@@ -54,8 +56,13 @@ export default function Mainrow () {
         return (
             <>
             {items.map( (item, index) => {
+                //item.content.rendered = 
                     return (
-                       <li key={'cat'+ index}>{item.title.rendered}</li>
+                        <>
+                           <h2 key={'cat'+ index}>{item.title.rendered}</h2>
+                           <span>Date: {dateToDDmmYYYY(item.date)}</span>
+                           <div>{parse(item.excerpt.rendered)}</div>
+                        </>
  
                     )
                 } )
